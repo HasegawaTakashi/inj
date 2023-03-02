@@ -7,8 +7,9 @@ if ! docker image inspect inj >/dev/null 2>&1; then
 fi
 
 # Run the container with interactive tty, and connect to it
-docker run --name inj-joke -it inj sh -c "
+docker run --name inj-joke -it --rm inj sh -c "
     cat /usr/src/app/command.txt
+    alias
     echo ; echo
     sl
     /bin/bash"
